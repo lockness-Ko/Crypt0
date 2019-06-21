@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.12/Tone.js.map"></script>
+		<script>
+			var synth = new Tone.Synth().toMaster()
+			var socket = io.connect('https://crypt0--locknessko.repl.co');
+			socket.on('note', function (data) {
+				synth.triggerAttackRelease(data.toUpperCase(), '8n')
+			});
+			//socket.join(window.location.href.split('=')[1]);
+			socket.emit("join", window.location.href.split('=')[1]);
+			//alert(window.location.href.split('=')[1]);
+			//socket.emit("note", "a");
+			function p(n){
+				socket.emit("note", n);
+				synth.triggerAttackRelease(n, '8n');
+			}
+		</script>
+		<title>Crypt0 - Music Collaboration Tool</title>
+	</head>
+	<body>
+		<h1>Press the buttons to play a note</h1>
+		<button id="c" onclick="p('c4')">c</button>
+		<button id="c" onclick="p('c#4')">c#</button>
+		<button id="d" onclick="p('d4')">d</button>
+		<button id="c" onclick="p('d#4')">eb</button>
+		<button id="e" onclick="p('e4')">e</button>
+		<button id="f" onclick="p('f4')">f</button>
+		<button id="f" onclick="p('f#4')">gb</button>
+		<button id="g" onclick="p('g4')">g</button>
+		<button id="g" onclick="p('g#4')">ab</button>
+		<button id="a" onclick="p('a4')">a</button>
+		<button id="a" onclick="p('a#4')">Bb</button>
+		<button id="b" onclick="p('b4')">b</button>
+		<button id="c" onclick="p('c5')">c</button>
+		<button id="c" onclick="p('c#5')">c#</button>
+		<button id="d" onclick="p('d5')">d</button>
+		<button id="c" onclick="p('d#5')">eb</button>
+		<button id="e" onclick="p('e5')">e</button>
+		<button id="f" onclick="p('f5')">f</button>
+		<button id="f" onclick="p('f#5')">gb</button>
+		<button id="g" onclick="p('g5')">g</button>
+		<button id="g" onclick="p('g#5')">ab</button>
+		<button id="a" onclick="p('a5')">a</button>
+		<button id="a" onclick="p('a#5')">Bb</button>
+		<button id="b" onclick="p('b5')">b</button>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<hr>
+		<footer><h6>Created By - Guys of the Moon</h6></footer>
+	</body>
+</html>
