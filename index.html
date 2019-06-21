@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script>
+			var socket = io.connect('https://crypt0--locknessko.repl.co:5644');
+			socket.on('note', function (data) {
+				console.log("Message "+data)
+			});
+		</script>
+		<title>Crypt0 - Music Collaboration Tool</title>
+	</head>
+	<body>
+		<h1>Welcome to Crypt0 a music collaboration tool</h1>
+		<h2>Type in the id to your friends room or a new one for a new room to join</h2>
+		<form action="https://Crypt0--locknessko.repl.co/join" onsubmit="socket.emit('join');">
+			<input type="text" name="id" placeholder="Room ID">
+			<input type="submit" placeholder="Enter Room">
+		</form>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<hr>
+		<footer><h6>Created By - Guys of the Moon</h6></footer>
+	</body>
+</html>
